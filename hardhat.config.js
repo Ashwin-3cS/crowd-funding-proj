@@ -4,8 +4,16 @@ require("@matterlabs/hardhat-zksync-solc");
 module.exports = {
   zksolc: {
     version: "1.3.9",
+    defaultNetwork:'sepolia',
+    networks:{
+      hardhat:{},
+      sepolia:{
+        url:'https://sepolia.infura.io/v3/4066181504164da3a9bd66e624cf82ac',
+        accounts:[`0x${process.env.PRIVATE_KEY}`]
+      }
+    },
     compilerSource: "binary",
-    settings: {
+    settings: {   
       optimizer: {
         enabled: true,
       },
